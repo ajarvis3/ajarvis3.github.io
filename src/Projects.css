@@ -1,3 +1,13 @@
+.description {
+    user-select: none;
+    cursor: pointer;
+    color: black;
+}
+
+.description:hover {
+    color: blue;
+}
+
 .project-link {
     text-decoration: none;
     font-weight: 500;
@@ -13,4 +23,8 @@
 
 .project-link:hover {
     color: blue;
+}
+
+.project {
+    margin: 10px;
 }
