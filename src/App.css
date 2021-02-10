@@ -4,6 +4,10 @@
   width: 60%;
 }
 
+.about-item {
+  margin: 0px 10px;
+}
+
 #about {
   display: flex;
   flex-direction: row;
@@ -14,6 +18,9 @@
   width: 50%;
 }
 
-#self-image {
+#self-image-container {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

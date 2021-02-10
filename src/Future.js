@@ -1,30 +1,54 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import "./Future.css"
 
 function Project(props) {
-    const {name} = props;
+    const {name, description} = props;
     const [collapsed, setCollapsed] = useState(true);
 
+    const someDesc = (<p>
+        {description}
+    </p>);
+
+    const handleClick = () => {
+        setCollapsed(!collapsed);
+    }
+
     return (
-        <div className="project">
-            {name}
+        <div>
+            <span className="project">{name}</span>
+            <div className="description" onClick={handleClick}>
+                Toggle Description
+            </div>
+            {!collapsed && someDesc}
         </div>
     )
 }
 
 function Future() {
-    const prjs = ["Whiteboard",
-                "Scheduling"];
+    const [projects, setProjects] = useState([]);
+    const api = "https://radiant-ravine-76341.herokuapp.com/api/future";
 
-    const projects = prjs.map((value) => {
-        return <Project name={value} key={value} />;
+    useEffect(() => {
+        fetch(api).then((value) => {
+            return value.json();
+        }, () => {
+            console.log("failed to fetch");
+        }).then((value) => {
+            if (value) {
+                setProjects(value);
+            }
+        });
+    }, []);
+
+    const projectElems = projects.map((value) => {
+        return <Project name={value[0]} description={value[1]} key={value}/>;
     });
 
     return (
         <div>
             <h4>Future</h4>
-            {projects}
+            {projectElems}
         </div>
     )
 }

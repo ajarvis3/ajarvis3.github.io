@@ -1,21 +1,21 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import "./Projects.css"
 
 function Project(props) {
-    const {name} = props;
+    const {name, description} = props;
     const [collapsed, setCollapsed] = useState(true);
 
-    const someDesc = (<div>
-        Placeholder until I decide how I want to store descriptions
-    </div>);
+    const someDesc = (<p>
+        {description}
+    </p>);
 
     const handleClick = () => {
         setCollapsed(!collapsed);
     }
 
     return (
-        <div className="project">
+        <div>
             <a className="project-link" href={"/" + name}>{name}</a>
             <div className="description" onClick={handleClick}>
                 Toggle Description
@@ -26,15 +26,29 @@ function Project(props) {
 }
 
 function Projects() {
-    const projectNames = ["React-Chat", "congress"];
-    const projects = projectNames.map((value) => {
-        return <Project name={value} key={value}/>;
+    const [projects, setProjects] = useState([]);
+    const api = "https://radiant-ravine-76341.herokuapp.com/api/projects";
+
+    useEffect(() => {
+        fetch(api).then((value) => {
+            return value.json();
+        }, () => {
+            console.log("failed to fetch");
+        }).then((value) => {
+            if (value) {
+                setProjects(value);
+            }
+        });
+    }, []);
+
+    const projectElems = projects.map((value) => {
+        return <Project name={value[0]} description={value[1]} key={value}/>;
     });
 
     return (
         <div>
             <h4>Projects</h4>
-            {projects}
+            {projectElems.length > 0 ? projectElems : "Loading..."}
         </div>
     );
 }
