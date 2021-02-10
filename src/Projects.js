@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import "./Projects.css"
 
 function Project(props) {
-    const {name, description} = props;
+    const {name, description, link} = props;
     const [collapsed, setCollapsed] = useState(true);
 
     const handleClick = () => {
@@ -12,7 +12,9 @@ function Project(props) {
 
     return (
         <div className="project">
-            <a className="project-link" href={"/" + name}>{name}</a>
+            <a className="project-link" href={"/" + (link ? name : "")}>
+                {name}
+            </a>
             <div className="description" onClick={handleClick}>
                 {collapsed ? "Expand Description" : description}
             </div>
@@ -38,7 +40,11 @@ function Projects(props) {
     }, [api]);
 
     const projectElems = projects.map((value) => {
-        return <Project name={value[0]} description={value[1]} key={value}/>;
+        return <Project 
+                    name={value[0]} 
+                    description={value[1]} 
+                    link={header==="Projects"}
+                    key={value}/>;
     });
 
     return (
