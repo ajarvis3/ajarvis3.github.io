@@ -2,6 +2,7 @@
     user-select: none;
     cursor: pointer;
     color: black;
+    margin: 0px;
 }
 
 .description:hover {
@@ -22,7 +23,7 @@
 }
 
 .project-link:hover {
-    color: blue;
+    color: lime;
 }
 
 .project {

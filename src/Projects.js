@@ -6,28 +6,24 @@ function Project(props) {
     const {name, description} = props;
     const [collapsed, setCollapsed] = useState(true);
 
-    const someDesc = (<p>
-        {description}
-    </p>);
-
     const handleClick = () => {
         setCollapsed(!collapsed);
     }
 
     return (
-        <div>
+        <div className="project">
             <a className="project-link" href={"/" + name}>{name}</a>
             <div className="description" onClick={handleClick}>
-                Toggle Description
+                {collapsed ? "Expand Description" : description}
             </div>
-            {!collapsed && someDesc}
         </div>
     )
 }
 
-function Projects() {
+function Projects(props) {
+    const {header} = props;
     const [projects, setProjects] = useState([]);
-    const api = "https://radiant-ravine-76341.herokuapp.com/api/projects";
+    const api = `https://radiant-ravine-76341.herokuapp.com/api/${header}`
 
     useEffect(() => {
         fetch(api).then((value) => {
@@ -39,7 +35,7 @@ function Projects() {
                 setProjects(value);
             }
         });
-    }, []);
+    }, [api]);
 
     const projectElems = projects.map((value) => {
         return <Project name={value[0]} description={value[1]} key={value}/>;
@@ -47,7 +43,7 @@ function Projects() {
 
     return (
         <div>
-            <h4>Projects</h4>
+            <h3>{header}</h3>
             {projectElems.length > 0 ? projectElems : "Loading..."}
         </div>
     );
