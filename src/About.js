@@ -40,12 +40,7 @@ function AboutMe() {
             <div id="self-image-container" className="about-item">
             <img
             id="self-image"
-            src={"https://dm2301files.storage.live.com/"
-            + "y4mVSsOhb1iS0-q3tUS7ntkpjztkcFwQQ-"
-            + "yA9Ff1UoaVRDhhFtrqxscipxJTKOV2uk1xgdx7Hyl4kWrdUE-"
-            + "duAVdKqeSwVNmbII6EKGUMtBYYGjJCRimuNgQmhy-"
-            + "AjDzEHGSgrfDANkfN0JjOqrI1DOjIazVoXASixp3gBKm_"
-            + "aalzWOm4PwXlWDrqRV22HnuGMJ?width=1920&height=1080&cropmode=none"}
+            src={"https://dm2301files.storage.live.com/y4mOQ4kpH0t2-F-JV026l7uVQTdh7Z16KvtmTLBkgO1hLCpC8LMCdMVpDpY5UXAjW5bdLf8F92mtYGUWJFMCVkhyIiTcXCaUF4MCMxPpiM4TXT6NBbh7gPxsl2Q057enyzk254urnfKRJVlt368yC0az8zPj1n7zWxmBUn9wGcfKVKINXoldF3G46dBHbjiVyUh?width=720&height=777&cropmode=none"}
             alt="me">
             </img>
             <label>A picture of myself at a point in time</label>

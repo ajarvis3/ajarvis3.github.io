@@ -1,20 +1,20 @@
 .about-item {
-    margin: 0px 10px;
-  }
-  
-  #about {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  #about-text {
-    text-align: left;
-    width: 50%;
-  }
-  
-  #self-image-container {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+  margin: 0px 10px;
+}
+
+#about {
+  display: flex;
+  flex-direction: row;
+}
+
+#about-text {
+  text-align: left;
+  width: 50%;
+}
+
+#self-image-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

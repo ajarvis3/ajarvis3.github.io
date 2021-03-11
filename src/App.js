@@ -8,8 +8,8 @@ function App() {
       <h2>
         Andrew Jarvis
       </h2>
-      <AboutMe />
       <Projects header="Projects"/>
+      <AboutMe />
       <Projects header="Future" />
     </div>
   );
