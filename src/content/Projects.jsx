@@ -22,12 +22,16 @@ const Project = (props) => {
             <Typography variant="h5">{name}</Typography>
             {repository && (
                <CardActions>
-                  <Link href={repository}>Repository</Link>
+                  <Link target="_blank" href={repository}>
+                     Repository
+                  </Link>
                </CardActions>
             )}
             {site && (
                <CardActions>
-                  <Link href={site}>Website</Link>
+                  <Link target="_blank" href={site}>
+                     Website
+                  </Link>
                </CardActions>
             )}
             {!expanded ? (

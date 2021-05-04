@@ -2,8 +2,10 @@ const future = [
    {
       _id: { $oid: "60221c553ec6205d21b05e33" },
       name: "Whiteboard",
+      repository: "https://github.com/ajarvis3/canvas",
+      site: "https://ajarvis3.github.io/canvas",
       description:
-         'A collaborative application that allows users to share a virtual whiteboard. Compared to the one supported by Zoom, I would like to add functionality to save images of the whiteboard and create additional whiteboards. Using <a href="https://github.com/ajarvis3/canvas">this canvas app as a precursor to the full project</a>',
+         "A collaborative application that allows users to share a virtual whiteboard. Compared to the one supported by Zoom, I would like to add functionality to save images of the whiteboard and create additional whiteboards. Linked website and repo are for the preliminary version of the canvas.",
    },
    {
       name: "Scheduling",
