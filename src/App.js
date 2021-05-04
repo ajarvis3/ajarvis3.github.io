@@ -1,18 +1,29 @@
-import './App.css';
-import Projects from "./Projects"
-import AboutMe from "./About"
+import "./App.css";
+import { RecoilRoot } from "recoil";
+import Menu from "./menu/Menu";
+import Content from "./content/Content";
+import { makeStyles } from "@material-ui/core";
+
+const drawerWidth = 160;
+
+const useStyles = makeStyles({
+   drawer: {
+      width: drawerWidth,
+   },
+   content: {
+      marginTop: 20,
+      marginLeft: drawerWidth,
+   },
+});
 
 function App() {
-  return (
-    <div className="App">
-      <h2>
-        Andrew Jarvis
-      </h2>
-      <Projects header="Projects"/>
-      <AboutMe />
-      <Projects header="Future" />
-    </div>
-  );
+   const classes = useStyles();
+   return (
+      <RecoilRoot>
+         <Menu className={classes.drawer} />
+         <Content className={classes.content} />
+      </RecoilRoot>
+   );
 }
 
 export default App;
